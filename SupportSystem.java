@@ -30,7 +30,12 @@
  * 7. public String trim()
  * 
  * 10. boolean
-*/
+ * 
+ * 12. Package: java.util
+ *     Random(): Creates a new random number generator.
+ *     Create a new instance: Random rnd = new Random();
+ *     Generate random number: nextInt()
+*/     
 
 public class SupportSystem
 {
