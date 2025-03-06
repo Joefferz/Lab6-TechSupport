@@ -28,6 +28,8 @@
  * 6. Links in the method summary, refer you to the method details.
  * 
  * 7. public String trim()
+ * 
+ * 10. boolean
 */
 
 public class SupportSystem
@@ -58,9 +60,9 @@ public class SupportSystem
         while(!finished) {
             String input = reader.getInput();
             input = input.trim(); //Question 8
-            
-            if(input.startsWith("bye")) {
-                finished = true;
+            input = input.toLowerCase(); //Question 9
+            if(input.equals("bye")) { //Question 11
+               finished = true;
             }
             else {
                 String response = responder.generateResponse();
