@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.ArrayList;
 /**
  * Write a description of class RandomTester here.
  *
@@ -8,6 +9,7 @@ import java.util.Random;
 public class RandomTester
 {
     private Random randomGenerator;
+    private ArrayList<String> responses;
 
     /**
      * Constructor for objects of class RandomTester
@@ -15,6 +17,16 @@ public class RandomTester
     public RandomTester()
     {
         randomGenerator = new Random();
+        responses = new ArrayList<>();
+        fillResponses();
+    }
+    
+    private void fillResponses(){
+        responses.add("hello");
+        responses.add("bye");
+        responses.add("yes");
+        responses.add("no");
+        responses.add("maybe");
     }
 
     /**
@@ -50,5 +62,11 @@ public class RandomTester
         else{
             return "maybe";
         }
+    }
+    
+    public String getBetterResponse() //Question 18
+    {
+        int index = randomGenerator.nextInt(responses.size());
+        return responses.get(index);
     }
 }
