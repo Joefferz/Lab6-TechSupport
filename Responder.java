@@ -1,6 +1,7 @@
 //import java.util.Random;
 //import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 /**
  * The responder class represents a response generator object.
  * It is used to generate an automatic response to an input string.
@@ -30,28 +31,31 @@ public class Responder
         //randomResponses.add("no");
         //randomResponses.add("maybe");
         //randomResponses.add("i don't know");
-        responses.put("a", "123");
-        responses.put("b" , "456");
-        responses.put("c" , "789");
+        responses.put("slow", "Try restarting your pc");
+        responses.put("update" , "Is your system up to date");
+        responses.put("help" , "What do you need help with");
     }
 
     /**
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse(String word)
+    public String generateResponse(HashSet<String> words)
     {
         //int index = randomGenerator.nextInt(randomResponses.size());
         //return randomResponses.get(index);
-        String answer = responses.get(word);
-        if(answer == null){
-            answer = pickDefaultResponse();
+        for(String keyWord : words)
+        {
+            if(responses.containsKey(keyWord))
+            {
+                return responses.get(keyWord);
+            }
         }
-        return answer;
+        return pickDefaultResponse();
     }
     
     private String pickDefaultResponse()
     {
-        return "Enter a valid key...";
+        return "Could you please elaborate";
     }
 }
